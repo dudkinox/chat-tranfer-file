@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f6f7f9" />
+    <title>LAN Drop — ส่งต่อได้ทันที</title>
+    <script src="/theme.js"></script>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/"
+        ><span class="brand-icon">↗</span> LAN<span>Drop</span></a
+      >
+      <div class="workspace-label">YOUR WORKSPACE</div>
+      <div class="nav active">
+        <span>▤</span> พื้นที่แชร์ <span class="pill">LAN</span>
+      </div>
+      <div class="sidebar-bottom">
+        <span class="small-orb"></span>
+        <div>
+          อยู่ใกล้กัน แชร์ถึงกัน<small>เชื่อมต่อผ่านเครือข่ายของคุณ</small>
+        </div>
+      </div>
+    </aside>
+    <main>
+      <header>
+        <div class="breadcrumb">
+          Workspace <span>/</span> <strong>พื้นที่แชร์</strong>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="สลับโหมดสี">◐ <span>โหมดสี</span></button>
+          <div id="connection" class="connection">กำลังเชื่อมต่อ…</div>
+        </div>
+      </header>
+      <div class="page">
+        <section class="intro">
+          <div>
+            <div class="eyebrow">LOCAL NETWORK · INSTANT SHARING</div>
+            <h1>ส่งต่อได้ทันที<span>.</span></h1>
+            <p>ข้อความ ไฟล์ และรูปภาพ ทุกอุปกรณ์ใน Wi-Fi เดียวกัน</p>
+          </div>
+          <button id="share" class="secondary">
+            ↗ <span>เชื่อมต่ออุปกรณ์</span>
+          </button>
+        </section>
+        <section class="network-card">
+          <div class="network-symbol">⌁</div>
+          <div>
+            <strong>พื้นที่เล็ก ๆ สำหรับแชร์ทุกอย่าง</strong>
+            <p>เปิดลิงก์นี้บนอุปกรณ์อื่น แล้วเริ่มส่งได้เลย</p>
+          </div>
+          <button id="address" title="คัดลอกลิงก์">
+            กำลังโหลด… <span>⧉</span>
+          </button>
+          <div class="live-label"><i></i> LIVE</div>
+        </section>
+        <section class="feed-heading">
+          <h2>รายการที่แชร์ <span id="count">0</span></h2>
+          <div class="feed-actions"><span id="online">อัปเดตแบบเรียลไทม์</span><button id="delete-all" class="delete-btn" type="button" disabled>ลบทั้งหมด</button></div>
+        </section>
+        <section
+          id="feed"
+          aria-label="ข้อความที่แชร์"
+          aria-live="polite"
+        ></section>
+        <div id="empty" class="empty">
+          <div class="empty-art">
+            <span>↗</span><span>▧</span><span>≡</span>
+          </div>
+          <h2>เริ่มแชร์สิ่งแรกของคุณ</h2>
+          <p>
+            พิมพ์ข้อความ ลากไฟล์มาวาง หรือวางรูปจากคลิปบอร์ด<br />แล้วข้อความจะปรากฏบนทุกอุปกรณ์ทันที
+          </p>
+          <div class="feature-tags">
+            <span>⧉ คัดลอกข้อความ</span><span>↓ ดาวน์โหลดไฟล์</span
+            ><span>ϟ ไม่ต้องรีเฟรช</span>
+          </div>
+        </div>
+        <form id="composer" class="composer">
+          <div class="compose-label">
+            <span class="avatar">Y</span><label for="sender">ชื่ออุปกรณ์</label
+            ><input
+              id="sender"
+              maxlength="40"
+              aria-label="ชื่ออุปกรณ์"
+              value="อุปกรณ์ของฉัน"
+            /><span class="private">◉ ภายในเครือข่ายเดียวกัน</span>
+          </div>
+          <textarea
+            id="text"
+            placeholder="มีอะไรอยากส่งต่อ? พิมพ์ข้อความ หรือวางรูปที่นี่…"
+            maxlength="20000"
+            aria-label="ข้อความ"
+          ></textarea>
+          <div id="attachments" class="attachments"></div>
+          <div id="progress" role="status"></div>
+          <div class="compose-footer">
+            <input id="file-input" type="file" multiple hidden /><button
+              type="button"
+              id="attach"
+              class="attach"
+            >
+              ＋ <span>แนบไฟล์ / รูปภาพ</span></button
+            ><span class="shortcut">Ctrl / ⌘ + Enter เพื่อส่ง</span
+            ><button id="send" type="submit" class="primary">
+              ส่งข้อความ <span>↗</span>
+            </button>
+          </div>
+        </form>
+        <footer>
+          <span><i></i> ไฟล์เก็บบนเครื่องที่เปิดเซิร์ฟเวอร์</span
+          ><span>ไม่จำกัดขนาดไฟล์ · 30 ไฟล์ / ข้อความ</span>
+        </footer>
+      </div>
+    </main>
+    <div id="toast" role="status"></div>
+    <dialog id="share-dialog">
+      <button id="close-dialog" class="close" aria-label="ปิด">×</button>
+      <div class="eyebrow">CONNECT YOUR DEVICES</div>
+      <h2>แชร์ข้ามอุปกรณ์</h2>
+      <p>เชื่อมต่อ Wi-Fi / LAN เดียวกัน แล้วเปิดลิงก์ด้านล่าง</p>
+      <div id="links"></div>
+      <p class="hint">
+        เปิดเซิร์ฟเวอร์ค้างไว้ และอนุญาตพอร์ตใน Firewall<br />ทุกคนที่เข้าถึงลิงก์ในเครือข่ายนี้สามารถดูข้อความและไฟล์ได้
+      </p>
+    </dialog>
+    <div id="drop-overlay">
+      ＋<strong>วางไฟล์เพื่อแนบข้อความ</strong
+      ><span>หลายไฟล์ หลายภาพ พร้อมกันได้เลย</span>
+    </div>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
